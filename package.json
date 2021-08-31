@@ -1,0 +1,22 @@
+{
+  "name": "udemy.css.natour",
+  "version": "1.0.0",
+  "description": "landing page for natour",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arifhusaini97/udemy.css.natour.git"
+  },
+  "author": "Nur Arif Husaini Norwaza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arifhusaini97/udemy.css.natour/issues"
+  },
+  "homepage": "https://github.com/arifhusaini97/udemy.css.natour#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
