@@ -1,1 +1,8 @@
 // Partial Sass File "initial with _"
+@mixin clearfix{
+    &::after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
