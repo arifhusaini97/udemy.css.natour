@@ -1,0 +1,80 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: rgba($color-white, 0.7);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  // There are not allowed to make 2 same properties appear at the same time
+  // Since one of the direct child (__shape) also have a transform,
+  // that will have a priority in browser.
+  //   & > * {
+  //     transform: skewX(12deg);
+  //   }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    background-color: orangered;
+    // the float must habe width and height to make shape-outside worked.
+    float: left;
+    // the circle() method is the same category of method as polygon()
+    // this must be used with float
+    // webkit is used to make it worked in Safari
+    // the shape of the object container
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // The shape of the object itself
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    // To create some space between the object and surrounding object
+    transform: translateX(-3rem) skewX(12deg);
+
+    position: relative;
+  }
+  // Responsible designer must always declare the size of the image
+  &__img {
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // this is used to ensure that the center point of the element
+    // is in the exact center, not at the element (0, 0)
+    // transform: translate(-50%, -50%);
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    // When the image shaking a liitle bit at the end of the transition, then
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
