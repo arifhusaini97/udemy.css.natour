@@ -1,8 +1,16 @@
 // Partial Sass File "initial with _"
-@mixin clearfix{
-    &::after{
-        content:"";
-        display:table;
-        clear:both;
-    }
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center-with-absolute {
+  // this is use to center the content.
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

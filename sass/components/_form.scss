@@ -76,7 +76,7 @@
     position: absolute;
     &::after {
       // after specify pseudo-element, need to specify content property
-      content: "";
+      content: '';
       display: block;
       height: 1.3rem;
       width: 1.3rem;
@@ -84,10 +84,7 @@
 
       // the parent position doesn't necessarily be a relative,
       // it just need to be specified position.
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include center-with-absolute;
       background-color: $color-primary;
       opacity: 0;
       transition: opacity 0.2s;

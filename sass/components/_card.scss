@@ -135,7 +135,7 @@
         rgba($color-secondary-dark, 0.85)
       );
     }
-    
+
     &--3 {
       background-image: linear-gradient(
         to right bottom,
@@ -164,13 +164,10 @@
   }
 
   &__cta {
-    position: absolute;
     // this is use to center the content.
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width:90%;
-    text-align:center;
+    @include center-with-absolute;
+    width: 90%;
+    text-align: center;
   }
 
   &__price-box {
