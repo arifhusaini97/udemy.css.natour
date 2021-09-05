@@ -1,3 +1,22 @@
+/* 
+Media Breakpoint
+
+0 - 600px: Phone
+600 - 900px: Tablet Portrait
+900 - 1200px: Tablet Landscape
+1200 -1800px: Normal styles apply (Desktop-First Approach)
+1800px ++ : Big Desktop
+
+*/
+/*
+  $breakpoint argument choices:
+  ~ phone
+  ~ tab-port
+  ~ tab-land
+  ~ big-desktop
+
+  1em = 16px
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -56,7 +75,29 @@
 
 /* Root Selector */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  /* 
+    This same as typing,
+    @media (max-width: 600px){
+      font-size:50%;
+    }
+    and,
+    @include respond-phone {
+    font-size: 50%;
+    }
+  */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 30%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
@@ -502,22 +543,7 @@ body {
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s; }
-  .popup:target {
-    opacity: 1;
-    visibility: visible; }
-  .popup__close:link, .popup__close:visited {
-    color: #777;
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    font-size: 3rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.5s;
-    line-height: 1; }
-  .popup__close:hover {
-    color: #7ed56f; }
+  transition: all 0.25s; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -529,7 +555,11 @@ body {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.25s 0.2s; }
   .popup__left {
     width: 33.33333333%;
     display: table-cell; }
@@ -554,6 +584,24 @@ body {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transition: translate(-50%, -50%) scale(1); }
+  .popup__close:link, .popup__close:visited {
+    color: #777;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.25s;
+    line-height: 1; }
+  .popup__close:hover {
+    color: #7ed56f; }
 
 .footer {
   background-color: #333;
