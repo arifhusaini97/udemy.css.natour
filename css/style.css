@@ -673,9 +673,11 @@ body {
     @media (max-width: 56.25em) {
       .popup__right {
         height: 66.66666666%;
+        width: auto;
         display: table-row;
-        vertical-align: none;
-        text-align: center; } }
+        vertical-align: baseline;
+        text-align: center;
+        display: inline-block; } }
   .popup__img {
     display: block;
     width: 50em; }
@@ -686,6 +688,7 @@ body {
     @media (max-width: 56.25em) {
       .popup__img {
         width: 50%;
+        height: 25em;
         display: inline-block; } }
   .popup__text {
     font-size: 1.4rem;
@@ -702,7 +705,8 @@ body {
     hyphens: auto; }
     @media (max-width: 56.25em) {
       .popup__text {
-        text-align: left; } }
+        text-align: left;
+        font-size: 1.2rem; } }
   .popup:target {
     opacity: 1;
     visibility: visible; }

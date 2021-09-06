@@ -45,9 +45,12 @@
 
     @include respond(tab-port) {
       height: 66.66666666%;
+      width:auto;
       display: table-row;
-      vertical-align: none;
+      vertical-align: baseline;
       text-align: center;
+      
+      display: inline-block;
     }
   }
   &__img {
@@ -59,6 +62,7 @@
     }
     @include respond(tab-port) {
       width: 50%;
+      height:25em;
       display: inline-block;
     }
   }
@@ -81,6 +85,7 @@
     hyphens: auto;
     @include respond(tab-port) {
       text-align: left;
+      font-size: 1.2rem;
     }
   }
 
