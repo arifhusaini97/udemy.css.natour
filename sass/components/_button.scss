@@ -1,7 +1,7 @@
 // Partial Sass File "initial with _"
 // this is actually for <a> element, hence it will not work properly on <button>
 .btn {
-  // we add &, to make it work for other kind of tag also 
+  // we add &, to make it work for other kind of tag also
   &,
   &:link,
   &:visited {
@@ -16,8 +16,11 @@
     font-size: $default-font-size;
 
     // change for the <button> element
-    border:none;
-    cursor:pointer;
+    border: none;
+    cursor: pointer;
+    @include respond(tab-port) {
+      padding: 1rem 3.5rem;
+    }
   }
 
   &:hover {
@@ -33,7 +36,7 @@
   &:active,
   &:focus {
     /* transform: translateY(-1px); */
-    outline:none;
+    outline: none;
     transform: scale(1.0025);
     box-shadow: 0 0px 1rem rgba($color-black, 0.2);
   }
@@ -85,20 +88,18 @@
       text-decoration: none;
       border-bottom: 1px solid $color-primary-dark;
       padding: 3px;
-      transition: all .2s
+      transition: all 0.2s;
     }
-  
+
     &:hover {
       background-color: $color-primary;
       color: $color-white;
-      box-shadow: 0 1rem 2rem rgba($color-black, .15);
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
       transform: translateY(-2px);
     }
     &:active {
-      box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+      box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
       transform: translateY(-2px);
     }
   }
 }
-
-
