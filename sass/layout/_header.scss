@@ -1,5 +1,5 @@
 .header {
-  height: 80vh;
+  height: 75vh;
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
@@ -10,16 +10,20 @@
   background-position: top;
   position: relative;
 
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
 
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+    height: 80vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+  }
   // dpi is for apple screen. the ',' is an or
   // media query must use em for consistency
-  @media (min-resolution: 192dpi) and (min-width: 125em /*600px*/), (min-width: 37.5em) {
+  @media (min-resolution: 192dpi) and (min-width: 125em /*600px*/),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-secondary-light, 0.8),
-        rgba($color-secondary-dark, 0.8)
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
       ),
       url(../img/hero.jpg);
   }

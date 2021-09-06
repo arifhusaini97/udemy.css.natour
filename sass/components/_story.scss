@@ -32,22 +32,30 @@
     background-color: orangered;
     // the float must habe width and height to make shape-outside worked.
     float: left;
-    // the circle() method is the same category of method as polygon()
-    // this must be used with float
-    // webkit is used to make it worked in Safari
-    // the shape of the object container
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-
-    // The shape of the object itself
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
 
     // To create some space between the object and surrounding object
     transform: translateX(-3rem) skewX(12deg);
 
     position: relative;
 
+    // to crop the image by container block
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      // The shape of the object itself
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+
+      // the circle() method is the same category of method as polygon()
+      // this must be used with float
+      // webkit is used to make it worked in Safari
+      // the shape of the object container
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+
+      border-radius: none;
+    }
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
     }

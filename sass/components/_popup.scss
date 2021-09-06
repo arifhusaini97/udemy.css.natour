@@ -13,6 +13,17 @@
 
   transition: all 0.25s;
 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  // check whether the browser support it or not
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, 0.3);
+  }
+
   &__content {
     @include center-with-absolute;
     width: 75%;
@@ -45,11 +56,11 @@
 
     @include respond(tab-port) {
       height: 66.66666666%;
-      width:auto;
+      width: auto;
       display: table-row;
       vertical-align: baseline;
       text-align: center;
-      
+
       display: inline-block;
     }
   }
@@ -62,7 +73,7 @@
     }
     @include respond(tab-port) {
       width: 50%;
-      height:25em;
+      height: 25em;
       display: inline-block;
     }
   }
